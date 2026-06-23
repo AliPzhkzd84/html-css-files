@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html>
+    <!-- scroll-behavior: smooth !important; -->
+    <head>
+        <meta charset="UTF-8">
+        <title>Select</title>
+        <!-- <link rel="stylesheet" href="./css_reset.css"> -->
+        <style>
+            body{
+                margin: 0;
+                padding-top: 8rem;
+            }
+
+            
+            /* ============================================ */
+            
+            /* calculate */
+            #cal{
+                background-color: chartreuse;
+                height: 40rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+            
+            #display{
+                background-color: darkmagenta;
+                width: 20rem;
+                height: 2.2rem;
+                display: flex;
+                align-items: end;
+                justify-content: right;
+                padding-right: 2rem;
+                padding-bottom: 0.8rem;
+            }
+            
+            #buttoms{
+                background-color: dimgrey;
+                height: 20rem;
+                width: 22rem;
+                display: flex;
+                flex-wrap: wrap;
+                
+            }
+            
+            .butt{
+                height: 4.7rem;
+                width: 5.5rem;
+                font-size: xx-large;
+                
+            }
+            
+            /* ============================================ */
+            
+            #ToDoList{
+                background-color: chocolate;
+                height: 25rem;
+            }
+            
+            
+            
+            /* ============================================================== */
+            
+            /* navigation bar */
+            #nav {
+                background-color: rgb(10, 81, 81);
+                height: 8rem;
+                display: flex;
+                align-items: end;
+                justify-content: space-between;
+                
+                position: fixed;
+                top: 0;
+                width: 100%; 
+                z-index: 100;
+                
+            }
+            #ul{
+                background-color: rgb(10, 81, 81);
+                height: 5rem;
+                width: 50%;
+                margin-right: 2rem;
+                display: flex;
+                justify-content: center;
+                align-items: end;
+                flex-direction: row;
+                gap: 0.8rem;
+                list-style: none;            
+            }
+            .items{
+                background-color: gray;
+                margin: .2rem;
+                height: 30%;
+                width: 30%;
+                text-align: center;
+                border-radius: 4px;
+                padding-top: 0.6rem;
+            }
+            .k{
+                text-decoration: none;
+                color: black;
+            }
+            
+            #profile{
+                background-color:rgb(10, 81, 81);
+                height: 6rem;
+                width: 30rem;
+                margin: 1rem 1rem;
+                display: flex;
+            }
+            .li{
+                display: flex;
+                background-color:rgb(10, 81, 81);
+                height: 1.5rem;
+                font-size: large;
+                text-align: center;
+            }
+            #pro{
+                background-color: rgb(10, 81, 81);
+                height: 4.5rem;
+                width: 10rem;
+                display: flex;
+                flex-direction: column;
+                gap: .1rem;
+                padding-bottom: 0.5rem;
+            }
+            .m{
+                text-decoration: none;
+                height: 2rem;
+                color: rgb(186, 186, 235);
+                display: flex;
+                align-items: center;                            
+                
+            }
+            #git{
+                margin-left: 1.9rem; 
+            }
+            #ins{
+                margin-left: 0.5rem; 
+            }
+            #lin{
+                margin-left: 1.28rem; 
+            }
+            #man{
+                border-radius: 9px;
+            }
+            
+            /* ================================================ */
+            
+            /* explanation */
+            
+            #explain{
+                background-color:rgb(31, 67, 67);
+                height: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            #txt{
+                display: flex;
+                flex-direction: column;
+                align-items: end;
+                margin-right: 2rem;
+                color: aliceblue;
+            }
+            #darbare{
+                /* background-color: aqua; */
+                text-align: end;
+                position: relative;
+                
+            }
+            #t{
+                
+                width: 60%;
+                /* height: 100%; */
+                direction: rtl;
+                line-height: 1.8rem;
+                position: relative;
+                bottom: 1.5rem;
+            }
+            #ask{
+                position: relative;
+                left: 5rem;
+                top: 2rem;
+                border-radius: 1rem;
+                
+                background-color: aqua;
+                height: 20rem;
+                /* width:100rem; */
+            }
+
+            /* ============================================ */
+            /* BMI */
+            #bmi{
+                background-color: rgb(49, 65, 96);
+                height: 40rem;
+                display: flex;
+                justify-content: space-between;
+            }
+            form{
+                background-color: rgb(82, 126, 208);
+                height: 25rem;
+                width: 30%;
+                margin-top: 6rem;
+                padding-bottom: 2rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-left: 2rem;
+                border-radius: 30px;
+            }
+            h2{
+                text-align: center;
+            }
+            .lb{
+                /* padding-bottom: 0.5rem; */
+                margin-top: 1.5rem;
+            }
+            .inp{
+                margin-top: 0.5rem;
+                width: 50%;
+                height: 2rem;
+                border-radius: 1rem;
+
+            }
+            #btt{
+                color: white;
+                margin-top: 2.5rem;
+                width: 8rem;
+                height: 2rem;
+                border-radius: 20px;
+                background-color: rgb(11, 48, 121);
+            }
+            #exp{
+                background-color: white;
+                height: 35rem;
+                width: 60%;
+                margin-top: 4rem;
+                margin-right: 2rem;
+                display: flex;
+                justify-content: space-between;
+                border-radius: 30px;
+            }
+            #res{
+                background-color: white;
+                width: 60%;
+                border-radius: 30px;
+
+            }
+            #top{
+                background-color: #699;
+                height: 17%;
+                border: #fff 0.3vw solid;
+                border-bottom-left-radius: 80%;
+                border-bottom-right-radius:80%;
+                display: flex;
+                justify-content: space-between;
+                border-top-left-radius: 30px;
+                border-top-right-radius: 30px;
+            }
+            
+            #topH{
+                color: white;
+                padding-left:5.8rem;
+                padding-top: 1rem;
+                display: flex;
+                flex-direction: column;
+                align-items:center ;
+                font-size: x-large;
+
+            }
+            #topW{
+                color: white;
+                padding-right: 5.8rem;
+                padding-top: 1rem;
+                display: flex;
+                flex-direction: column;
+                align-items:center ;
+                font-size: x-large;
+
+            }
+            .WH{
+                color:white;
+                padding-top: 0.4rem;
+                font-size: medium;
+            }
+            #out1{
+                color: #403e3e;
+                background-color: #E0EFEF;
+                width: 35%;
+                height: 35%;
+                position: relative;
+                bottom: 3rem;
+                border-radius: 100%;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                
+                align-self: center;
+                justify-self: center;
+            }
+            #n1{
+                font-size: xx-large;
+                color: #09c;
+            }
+            #kos{
+                padding-bottom: 1rem;
+            }
+            #out2{
+                background-color: white;
+                height: 30%;
+                position: relative;
+                bottom: 2rem;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+            }
+            .st{
+                color:#09c;
+            }
+            .c{
+                padding-top: 2rem;
+                direction: rtl;
+                font-size: large;
+            }
+            .c.k{
+                display: none;
+            }
+            #botto{
+                direction: rtl;
+                background-color: #d7d3d3;
+                height: 16.6%;
+                border-bottom-left-radius: 30px;
+                border-bottom-right-radius: 30px;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                padding-left: 1rem;
+            }
+
+            #bmiimg{
+                background-color: white;
+                width: 30%;
+                padding-right: 2rem;
+                border-top-right-radius: 30px;
+                border-bottom-right-radius: 30px;
+
+            }
+            
+
+
+
+        </style>
+
+    </head>
+
+    <body>
+        <nav id="nav">
+        
+            <div id="profile">
+                <img id="man" src="./IMG_20250111_165339_930.webp" width="100" height="100">
+                <ul id="pro">
+                        <li class="li"><a class="m" href="#">instagram <img id="ins" src="https://fs.noorgram.ir/xen/2020/10/452_5505ba3ca7398e19b395e7a44807cc7c_thumb.jpg" width="20" height="17"></a></li>
+                        <li class="li"><a class="m" href="#">linkdine<img id="lin" src="https://demo.cgkok.com/2023/1/img/linkedin-logo-4.png" width="20" height="17"></a></li>
+                        <li class="li"><a class="m" href="#">github<img id="git" src="https://logoyab.com/wp-content/uploads/2025/09/Github-Logo-1030x1030.png" width="22" height="19"></a></li>
+                    </ul>
+                </div>
+            
+            
+                <ul id="ul">
+                    <li>
+                        <li class="items"><a class="k" href="#cal">Calculate</a></li>
+                        <li class="items"><a class="k" href="#ToDoList">To Do List</a></li>
+                        <li class="items"><a class="k" href="#bmi">BMI</a></li>
+                    </li>
+                </ul>
+        </nav>
+<!-- ============================================== -->
+        <div id="explain">
+            <img id="ask" src="https://mwallpaper.ir/wp-content/uploads/2021/10/%D9%88%D8%A7%D9%84%D9%BE%DB%8C%D9%BE%D8%B1-%D9%87%DA%A9%D8%B1%DB%8C-%D9%88-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C.jpg" alt="">
+        
+            <div id="txt">
+                <h2 id="darbare">عنوان</h2>
+            
+                <p id="t">لورم ایپسوم یا طرح‌نما (به انگلیسی: Lorem ipsum) به متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید، تا از نظر گرافیکی نشانگر چگونگی نوع و اندازه فونت و ظاهر متن باشد. معمولا طراحان گرافیک برای صفحه‌آرایی، نخست از متن‌های آزمایشی و بی‌معنی استفاده می‌کنند تا صرفا به مشتری یا صاحب کار خود نشان دهند که صفحه طراحی یا صفحه بندی شده بعد از اینکه متن در آن قرار گیرد چگونه به نظر می‌رسد و قلم‌ها و اندازه‌بندی‌ها چگونه در نظر گرفته شده‌است. از آنجایی که طراحان عموما نویسنده متن نیستند و وظیفه رعایت حق تکثیر متون را ندارند و در همان حال کار آنها به نوعی وابسته به متن می‌باشد آنها با استفاده از محتویات ساختگی، صفحه گرافیکی خود را صفحه‌آرایی می‌کنند تا مرحله طراحی و صفحه‌بندی را به پایان برند</p>
+
+            </div>
+
+        </div>
+
+<!-- ==================================================== -->
+
+
+
+        <div id="cal">
+            <span id="display" >0</span>
+            <div id="buttoms">
+                <button class="butt no">1</button>
+                <button class="butt no">2</button>
+                <button class="butt no">3</button>
+                <button class="butt opr">+</button>
+                <button class="butt no">4</button>
+                <button class="butt no">5</button>
+                <button class="butt no">6</button>
+                <button class="butt opr">-</button>
+                <button class="butt no">7</button>
+                <button class="butt no">8</button>
+                <button class="butt no">9</button>
+                <button class="butt opr">*</button>
+                <button class="butt cls">clear</button>
+                <button class="butt no">0</button>
+                <button class="butt eql">=</button>
+                <button class="butt opr">/</button>
+            </div>
+        </div>
+
+
+
+
+
+        <div id="ToDoList">
+
+        </div>
+
+
+
+
+
+        
+        <div id="bmi">
+
+            <form >
+                <h2>BMI Calculate</h2>
+                
+                <label class="lb" for="name">Name</label>
+                <input class="inp" id="name" type="text" placeholder="your name ...">
+                
+                <label class="lb" for="weight">Weight</label>
+                <input class="inp" id="weight" type="number" placeholder="(kilogram)">
+                
+                <label class="lb" for="height">Height</label>
+                <input class="inp" id="height" type="number" placeholder="(meter)">
+                
+                <button id="btt" type="button">calculate</button>
+                
+            </form>
+            
+            
+            <div id="exp">
+                <div id="res">
+                    <div id="top">
+                        <div id="topH">قد
+                            <span class="WH r"></span>
+                        </div>
+
+                        <div id="topW">وزن
+                            <span class="WH l"></span>
+                        </div>
+
+                    </div>
+                    <!-- =========================== -->
+                    <div id="out1">
+                        <h2>BMI</h2>
+                        <h3 id="kos">شاخص توده بدنی</h3>
+                        <span id="n1">_ _</span>
+                    </div>
+                    <!-- =========================== -->
+                    <div id="out2">
+                        <div class="c">وضعیت :
+                            <span id="vaziat" class="st">_ _ _</span>
+                        </div>
+                        
+                        <div class="c k">میزان <span id="DiOrIn"></span> وزن :
+                            <span id="mizan" class="st">2.2</span>
+                        کیلو گرم
+                        </div>
+
+                        <div class="c">محدوده وزن سالم :
+                            <span id="since" class="st">_ _</span>
+                            تا
+                            <span id="till" class="st">_ _</span>
+                            کیلوگرم
+                        </div>
+                    </div>
+                    <!-- =========================== -->
+                    <div id="botto">
+                        <span id="namee"></span>
+                        <div id="bottxt">عزیز ! محدوده سالم برای وزن شما با قد
+                            <span id="botto-height">_</span> <!--درست شه-->
+                            سانتی متر و وزن 
+                            <span id="botto-weight">_</span>  <!--درست شه-->
+                           کیلو گرم محاسبه شد
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <img id="bmiimg" src="">
+
+            </div>
+        </div>
+
+        <script>
+            const btt = document.querySelector('#btt');
+            let answer = null;
+
+            btt.addEventListener('click', (e)=>{
+                
+                const name = document.querySelector('#name').value;
+                const weight = parseFloat(document.querySelector('#weight').value);
+                const height =parseFloat(document.querySelector('#height').value);
+                const Name = document.querySelector('#namee');
+                Name.textContent = name;
+                const o1 = document.querySelector('.WH.r');
+                const o2 = document.querySelector('.WH.l');
+                
+                const o3 = document.querySelector('#n1');
+                
+                o1.textContent= height;
+                o2.textContent= weight;
+                
+                answer = (weight / (height * height)).toFixed(1);
+                o3.textContent = answer;
+                
+                const o4 = document.querySelector('#since');
+                const o5 = document.querySelector('#till');
+                o4.textContent = ((height*height) * 18.5).toFixed(1);
+                o5.textContent =((height*height) * 24.9).toFixed(1);
+                
+                const v = document.querySelector('#vaziat');
+                const mizan_div = document.querySelector('.c.k');
+                const diorin =  document.querySelector('#DiOrIn');
+                const Mizan =  document.querySelector('#mizan');
+                
+                const bottoHeight = document.querySelector('#botto-height');
+                const bottoWeight = document.querySelector('#botto-weight');
+                bottoHeight.textContent = height;
+                bottoWeight.textContent = weight;
+                
+                const IMGG = document.getElementById('bmiimg'); <!--select picture-->
+                if(answer >= 18.5 && answer <= 25){
+                    v.textContent = "وزن سلامت";
+                    IMGG.src = "./bmi/normal.png";
+                    IMGG.style.width = '25%';
+
+                }
+                else if(answer < 18.5){
+                    mizan_div.style.display = 'block';
+                    v.textContent = "لاغر";
+                    diorin.textContent = "کاهش";
+                    Mizan.textContent = (parseFloat(o4.textContent) - weight).toFixed(1) ;
+                    IMGG.src = "./bmi/laghar.png";
+                    IMGG.style.width = '20%';
+                }
+                else if(answer > 25 && answer <=30){
+                    mizan_div.style.display = 'block';
+                    v.textContent = "اضافه وزن";
+                    diorin.textContent = "افزایش";
+                    Mizan.textContent =(weight - parseFloat(o4.textContent)).toFixed(1);
+                    IMGG.src = "./bmi/chagh.png";
+                    IMGG.style.width = '25%';
+
+
+                }
+                else if(answer > 30){
+                    mizan_div.style.display = 'block';
+                    v.textContent = "چاق";
+                    diorin.textContent = "افزایش";
+                    Mizan.textContent = (weight - parseFloat(o4.textContent)).toFixed(1);
+                    IMGG.src = "./bmi/x_chagh.png";
+                    IMGG.style.width = '34%';
+
+                }
+                
+            });
+            
+            
+            
+            </script>
+
+
+<script src="./calculator.js"></script>
+
+<script> //for scroll soft ...
+            document.querySelectorAll('a[href^="#"]').forEach((link) => {
+                link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = document.querySelector(link.getAttribute('href'));
+            target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+        </script>
+
+
+    </body>
+
+</html>
